@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Repairs</title>
+</head>
+<body>
+    <header>
+    <h1>Repairs</h1>
+    <link rel="stylesheet" href="look.css">
+    <div class="navbar">
+        <a class="active" href="homepage.html">Home</a>
+        <a href="Repairs.html">Repairs</a>
+        <a href="About.html">About us</a>
+        <a href="Contacts.html">Contact us</a>
+        <a href="products.html">Products</a>
+      </div>
+    </header>
+    <br>
+<br>
+<div class="form-container">
+  <form name="feedbackForm" onsubmit="return validateForm()" method="post">
+    <div class="first">
+      <label for="firstName">First Name:</label>
+      <input type="text" id="firstName" name="firstName" required>
+    </div>
+    <div class="last">
+      <label for="lastName">Last Name:</label>
+      <input type="text" id="lastName" name="lastName" required>
+      </div>
+      <div class="phone">
+      <label for="phoneNumber">Phone Number:</label>
+      <input type="text" id="phoneNumber" name="phoneNumber" required>
+      </div>
+      <div class="email">
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required>
+      </div>
+      <div class="feed">
+      <label for="message">Feedback:</label>
+      <textarea id="message" name="message" required></textarea>
+      </div>
+      <div class="submit">
+      <button type="submit">Submit</button>
+      </div>
+  </form>
+</div>
+<script>
+  function validateForm() {
+      var firstName = document.forms["feedbackForm"]["firstName"].value;
+      var lastName = document.forms["feedbackForm"]["lastName"].value;
+      var phoneNumber = document.forms["feedbackForm"]["phoneNumber"].value;
+      var email = document.forms["feedbackForm"]["email"].value;
+      var message = document.forms["feedbackForm"]["message"].value;
+
+      // Validate name: no numbers or special characters
+      if (/[^a-zA-Z -]/.test(firstName) || /[^a-zA-Z -]/.test(lastName)) {
+          alert("Name should not contain numbers or special characters.");
+          return false;
+      }
+
+      // Validate email format
+      if (!/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/.test(email)) {
+          alert("You have entered an invalid email address!");
+          return false;
+      }
+
+      // Validate phone number: exactly 10 digits
+      if (phoneNumber.length != 10 || /[^0-9]/.test(phoneNumber)) {
+          alert("Phone number must be 10 digits.");
+          return false;
+      }
+
+      // If all validations pass, show success message and redirect
+      alert("Message has been sent successfully!");
+      window.location.href = 'homepage.html'; // Redirect to homepage
+      return false; // Prevent default form submission behavior
+  }
+</script>
+
+<div class="p2">
+  <img src="broken.jfif">
+</div>
+<br>
+<div class="p3">
+  <img src="phone.jfif">
+</div>
+<div class="link2">
+<a style="text-decoration:none" href="https://ee.co.uk/local-repairs">If our repairs are taking too long for you you can also "click here" to go to the EE website for any repairs they may offer</a> 
+</div>
+</body>
+<footer>2024 harvey wilkinson ¦ last updated may 10 2024</footer>
+</html>
